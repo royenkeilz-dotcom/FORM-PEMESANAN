@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan - SAYAGI WATER</title>
+    <link rel="stylesheet" href="pemesanan.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header dengan Logo/Foto -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(100,200,255);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(30,144,255);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='95' fill='url(%23grad1)' stroke='white' stroke-width='3'/%3E%3Ctext x='100' y='120' font-size='60' fill='white' text-anchor='middle' font-weight='bold'%3E💧%3C/text%3E%3C/svg%3E" alt="SAYAGI WATER" class="logo">
+            </div>
+            <h1 class="title">SAYAGI WATER</h1>
+            <p class="subtitle">Depot Air Minum Berkualitas Tinggi</p>
+            <p class="location">📍 Jalan Ciberem, Kecamatan Pasirjambu</p>
+        </header>
+
+        <main class="form-container">
+            <div class="form-header">
+                <h2>📋 Form Pemesanan</h2>
+                <p class="form-subtitle">Pesan sekarang dan dapatkan pengiriman cepat!</p>
+            </div>
+
+            <form id="orderForm">
+                <!-- Tab Navigation -->
+                <div class="form-tabs">
+                    <button type="button" class="tab-btn active" data-tab="1">Data Pelanggan</button>
+                    <button type="button" class="tab-btn" data-tab="2">Pilih Produk</button>
+                    <button type="button" class="tab-btn" data-tab="3">Detail Pengiriman</button>
+                </div>
+
+                <!-- Tab 1: Data Pelanggan -->
+                <div class="form-tab active" data-tab="1">
+                    <div class="form-group">
+                        <label for="nama">
+                            <span class="label-icon">👤</span> Nama Pelanggan
+                        </label>
+                        <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap Anda">
+                        <small class="error-text" id="namaError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telepon">
+                            <span class="label-icon">📱</span> Nomor Telepon
+                        </label>
+                        <input type="tel" id="telepon" name="telepon" required placeholder="Contoh: 08123456789">
+                        <small class="error-text" id="teleponError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="label-icon">✉️</span> Email (Opsional)
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+                    </div>
+                </div>
+
+                <!-- Tab 2: Pilih Produk -->
+                <div class="form-tab" data-tab="2">
+                    <div class="form-group">
+                        <label class="product-label">
+                            <span class="label-icon">🥤</span> Pilih Produk
+                        </label>
+                        <div class="product-options">
+                            <div class="product-card">
+                                <input type="checkbox" id="aqua" name="produk" value="AQUA">
+                                <label for="aqua">
+                                    <span class="product-icon">💙</span>
+                                    <span class="product-name">AQUA</span>
+                                    <span class="product-desc">Rp 21.000/galon</span>
+                                </label>
+                            </div>
+                            <div class="product-card">
+                                <input type="checkbox" id="lemineral" name="produk" value="LE MINERAL">
+                                <label for="lemineral">
+                                    <span class="product-icon">💚</span>
+                                    <span class="product-name">LE MINERAL</span>
+                                    <span class="product-desc">Rp 21.000/galon</span>
+                                </label>
+                            </div>
+                            <div class="product-card">
+                                <input type="checkbox" id="gas" name="produk" value="GAS">
+                                <label for="gas">
+                                    <span class="product-icon">🔥</span>
+                                    <span class="product-name">GAS</span>
+                                    <span class="product-desc">Rp 24.000/tabung</span>
+                                </label>
+                            </div>
+                            <div class="product-card">
+                                <input type="checkbox" id="isiulang" name="produk" value="ISI ULANG">
+                                <label for="isiulang">
+                                    <span class="product-icon">♻️</span>
+                                    <span class="product-name">ISI ULANG</span>
+                                    <span class="product-desc">Rp 5.000/4.000/liter</span>
+                                </label>
+                            </div>
+                        </div>
+                        <small class="error-text" id="produkError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jumlah">
+                            <span class="label-icon">🔢</span> Jumlah Pemesanan (Galon/Tabung)
+                        </label>
+                        <div class="quantity-group">
+                            <button type="button" class="qty-btn minus">−</button>
+                            <input type="number" id="jumlah" name="jumlah" value="1" min="1" max="100" readonly>
+                            <button type="button" class="qty-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Detail Pengiriman -->
+                <div class="form-tab" data-tab="3">
+                    <div class="form-group">
+                        <label for="lokasi">
+                            <span class="label-icon">📍</span> Lokasi Pengantaran
+                        </label>
+                        <textarea id="lokasi" name="lokasi" rows="3" required placeholder="Masukkan alamat lengkap pengiriman (nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan)"></textarea>
+                        <small class="error-text" id="lokasiError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keterangan">
+                            <span class="label-icon">📝</span> Keterangan Tambahan
+                        </label>
+                        <textarea id="keterangan" name="keterangan" rows="4" placeholder="Tuliskan catatan khusus (misal: pintu rumah warna merah, ada pagar, dll)"></textarea>
+                    </div>
+
+                    <!-- Foto (Opsional) -->
+                    <div class="form-group">
+                        <label for="foto">
+                            <span class="label-icon">📸</span> Upload Foto (Opsional)
+                        </label>
+                        <div class="file-upload">
+                            <input type="file" id="foto" name="foto" accept="image/*">
+                            <label for="foto" class="file-label">
+                                <span class="upload-icon">📷</span>
+                                <span class="upload-text">Klik untuk upload foto</span>
+                            </label>
+                            <div id="fotoPreview" class="foto-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Submit & Reset -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <span>✓ Kirim Pesanan</span>
+                    </button>
+                    <button type="reset" class="btn-reset">
+                        <span>↻ Bersihkan</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Pesan Notifikasi -->
+            <div id="successMessage" class="notification success-message" style="display: none;">
+                <div class="notification-content">
+                    <span class="notification-icon">✓</span>
+                    <div>
+                        <strong>Pesanan Berhasil!</strong>
+                        <p>Data Anda telah disimpan. Tunggu konfirmasi kami.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="notification error-message" style="display: none;">
+                <div class="notification-content">
+                    <span class="notification-icon">✗</span>
+                    <div>
+                        <strong>Gagal Mengirim!</strong>
+                        <p id="errorText">Silakan periksa kembali data Anda</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Mengirim data...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SAYAGI WATER</h4>
+                    <p>📍 Jalan Ciberem, Pasirjambu</p>
+                    <p>📞 0812-3456-7890</p>
+                </div>
+                <div class="footer-hours">
+                    <h4>Jam Operasional</h4>
+                    <p>Minggu - Jumat: 07:00 - 21:00</p>
+                    <p>Sabtu: 07:00 - 22:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAYAGI WATER - Depot Air Berkualitas Premium</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="pemesanan.js"></script>
+</body>
+</html>
